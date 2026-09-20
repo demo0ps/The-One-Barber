@@ -1,0 +1,7 @@
+{
+  "buildCommand": "npm run build --workspace @the-one-barber/web",
+  "outputDirectory": "apps/web/.next",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "regions": ["fra1"]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "the-one-barber",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The One Barber — one engine, four dashboards (Client, Barber, Admin, Reception).",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace @the-one-barber/web",
+    "build": "npm run build --workspace @the-one-barber/web",
+    "start": "npm run start --workspace @the-one-barber/web"
+  }
+}
