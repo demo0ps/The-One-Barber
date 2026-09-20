@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-ink font-sans text-white/90 antialiased;
+}
+
+::selection {
+  @apply bg-gold text-black;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0b;
+}
+::-webkit-scrollbar-thumb {
+  background: #26262c;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3a42;
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-white/10 bg-coal/80;
+  }
+  .card-gold {
+    @apply rounded-2xl border border-gold/25 bg-gradient-to-b from-smoke to-coal shadow-gold;
+  }
+  .btn-gold {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-gradient-to-b from-gold-light to-gold-deep px-5 py-2.5 font-semibold text-black transition hover:brightness-110 active:scale-[.98] disabled:pointer-events-none disabled:opacity-40;
+  }
+  .btn-ghost {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-white/15 px-5 py-2.5 font-medium text-white/80 transition hover:border-gold/50 hover:text-gold-light disabled:pointer-events-none disabled:opacity-40;
+  }
+  .btn-danger {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-rose-500/30 bg-rose-500/10 px-5 py-2.5 font-medium text-rose-300 transition hover:bg-rose-500/20;
+  }
+  .input {
+    @apply w-full rounded-xl border border-white/10 bg-ink px-3.5 py-2.5 text-sm text-white placeholder-white/30 outline-none transition focus:border-gold/60;
+  }
+  .label {
+    @apply mb-1.5 block text-xs font-medium tracking-wider text-white/50 uppercase;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[11px] font-medium;
+  }
+  .gold-text {
+    background: linear-gradient(120deg, #f4dd8c, #d4af37 45%, #9c7c1e);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hairline {
+    @apply border-t border-gold/15;
+  }
+}
