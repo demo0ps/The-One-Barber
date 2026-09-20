@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The One Barber — One Engine · Four Dashboards — Live Demo Links</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700;800&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{--gold:#D4AF37;--gold2:#F5E6A3;--bronze:#A47A2A;--ink:#0F0F10;--coal:#1A1A1E;--smoke:#242428}
+  body{font-family:Inter,system-ui,Arial,sans-serif;background:#0A0A0B;color:#fff;line-height:1.5}
+  .wrap{max-width:1120px;margin:0 auto;padding:28px 20px 40px}
+  .top{border:1px solid rgba(212,175,55,.25);background:linear-gradient(135deg,rgba(212,175,55,.12),rgba(212,175,55,.02) 55%,transparent);border-radius:20px;padding:22px 22px 18px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .logo img{height:56px;width:auto;display:block}
+  .brand h1{font-family:"Playfair Display",serif;font-weight:800;letter-spacing:.02em;font-size:28px;line-height:1}
+  .brand h1 span{color:var(--gold)}
+  .brand p{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:4px}
+  .badge{margin-left:auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .pill{border:1px solid rgba(212,175,55,.35);background:rgba(212,175,55,.12);color:var(--gold2);border-radius:999px;padding:7px 12px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+  .pill.dark{border-color:rgba(255,255,255,.14);background:rgba(255,255,255,.06);color:rgba(255,255,255,.75)}
+  .edit{display:flex;gap:8px;align-items:center;margin-top:10px;flex-wrap:wrap}
+  .edit input{flex:1;min-width:280px;background:#141417;border:1px solid rgba(255,255,255,.12);color:#fff;border-radius:10px;padding:10px 12px;font-size:13px}
+  .edit button{background:var(--gold);color:#000;border:0;border-radius:10px;padding:10px 14px;font-weight:800;cursor:pointer}
+  .edit button:hover{filter:brightness(1.07)}
+  .hint{font-size:11px;color:rgba(255,255,255,.45);margin-top:6px}
+  .grid{margin-top:18px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  @media (max-width:820px){ .grid{grid-template-columns:1fr} }
+  .card{border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01));border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+  .card.head{padding:16px 16px 12px;display:flex;align-items:center;gap:12px}
+  .num{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;font-weight:800;font-size:14px;flex:none}
+  .n1{background:rgba(212,175,55,.18);color:var(--gold);border:1px solid rgba(212,175,55,.38)}
+  .n2{background:rgba(52,211,153,.12);color:#6EE7B7;border:1px solid rgba(52,211,153,.3)}
+  .n3{background:rgba(96,165,250,.12);color:#93C5FD;border:1px solid rgba(96,165,250,.3)}
+  .n4{background:rgba(244,114,182,.10);color:#F9A8D4;border:1px solid rgba(244,114,182,.28)}
+  .card h2{font-family:"Playfair Display",serif;font-size:18px;letter-spacing:.01em}
+  .card .sub{font-size:12px;color:rgba(255,255,255,.5);letter-spacing:.08em;text-transform:uppercase}
+  .card .body{padding:0 16px 14px;flex:1}
+  .url{margin:10px 0 8px;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:10px 12px;display:flex;gap:8px;align-items:center}
+  .url a{color:var(--gold2);font-weight:700;font-size:13px;word-break:break-all;text-decoration:none}
+  .url a:hover{text-decoration:underline}
+  .qr{display:flex;gap:12px;align-items:flex-start;margin-top:10px}
+  .qr img{width:112px;height:112px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#fff;padding:6px}
+  .qr ul{font-size:12.5px;color:rgba(255,255,255,.72);list-style:none}
+  .qr li{padding:3px 0}
+  .qr li b{color:#fff}
+  .meta{border-top:1px solid rgba(255,255,255,.07);background:rgba(0,0,0,.18);padding:10px 16px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .chip{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);border-radius:999px;padding:5px 9px;font-size:11px;font-weight:700;letter-spacing:.04em}
+  .chip.gold{border-color:rgba(212,175,55,.42);background:rgba(212,175,55,.14);color:var(--gold2)}
+  .btn{flex:1;text-align:center;border-radius:10px;padding:9px 12px;font-weight:800;font-size:13px;text-decoration:none;display:inline-block}
+  .btn.gold{background:var(--gold);color:#000}
+  .btn.ghost{background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.12)}
+  .footer{margin-top:16px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);border-radius:16px;padding:16px;display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
+  @media (max-width:820px){ .footer{grid-template-columns:1fr} }
+  .footer h3{font-family:"Playfair Display",serif;font-size:15px}
+  .footer p, .footer li{font-size:12.5px;color:rgba(255,255,255,.7)}
+  .kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+  .kpi div{border:1px solid rgba(255,255,255,.08);background:rgba(0,0,0,.22);border-radius:12px;padding:10px 10px;text-align:center}
+  .kpi b{font-family:"Playfair Display",serif;font-size:18px;color:var(--gold2)}
+  .kpi span{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+  .steps{margin-top:8px;padding-left:18px}
+  .steps li{margin:6px 0}
+  .warn{margin-top:12px;background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.22);border-radius:12px;padding:10px 12px;font-size:11.5px;color:rgba(255,255,255,.7)}
+  .warn b{color:var(--gold2)}
+  @media print{ .edit, .btn{ghost{display:none}} body{background:#fff;color:#000} .card,.footer,.top{break-inside:avoid} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="logo"><img src="apps/web/public/images/logo.png" onerror="this.style.display='none'" alt="The One Barber" /></div>
+    <div class="brand">
+      <h1>THE <span>ONE</span> BARBER</h1>
+      <p>Pretoria · One engine · Four dashboards · Live on Vercel</p>
+      <div class="edit">
+        <input id="domain" placeholder="https://the-one-barber-demo.vercel.app" value="https://the-one-barber-demo.vercel.app" />
+        <button onclick="applyDomain()">Update 4 links & QRs</button>
+      </div>
+      <div class="hint">After you deploy, paste your Vercel URL above — the 4 cards, buttons and QR codes all update instantly. Then <b>File → Print → Save as PDF</b> to send to the client.</div>
+    </div>
+    <div class="badge">
+      <span class="pill">Free Hobby plan · 1 project</span>
+      <span class="pill dark">fra1 · Pretoria-fast</span>
+      <span class="pill dark">Ephemeral demo · Reset anytime</span>
+    </div>
+  </div>
+
+  <div class="grid">
+    <!-- 1 CLIENT -->
+    <div class="card">
+      <div class="card head">
+        <div class="num n1">1</div>
+        <div>
+          <h2>Client Website</h2>
+          <div class="sub">The public shop — what every customer sees</div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="url"><span>🔗</span> <a id="link1" href="https://the-one-barber-demo.vercel.app/" target="_blank">https://the-one-barber-demo.vercel.app/</a></div>
+        <div class="qr">
+          <img id="qr1" alt="QR website" src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https://the-one-barber-demo.vercel.app/" />
+          <ul>
+            <li>→ Book a cut, pick barber, pick slot</li>
+            <li>→ Add tip <b>R10 / R20 / R30 / R50</b> — adds to PayFast total</li>
+            <li>→ Loyalty: <b>9 stamps → 10th cut free</b> (hair cuts only)</li>
+            <li>→ Hours: <b>Mon–Thu 09–19 · Fri 09–20 · Sat 08–18 · Sun&PH 08–13</b></li>
+            <li>→ <b>No staff links</b> — clean for customers</li>
+          </ul>
+        </div>
+      </div>
+      <div class="meta">
+        <span class="chip gold">Scan to book</span><span class="chip">No PIN</span>
+        <a id="btn1" class="btn gold" target="_blank" href="https://the-one-barber-demo.vercel.app/">Open Website →</a>
+      </div>
+    </div>
+
+    <!-- 2 RECEPTION -->
+    <div class="card">
+      <div class="card head">
+        <div class="num n2">2</div>
+        <div>
+          <h2>Reception</h2>
+          <div class="sub">Front desk — walk-ins, allocation, loyalty, cash/card at chair</div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="url"><span>🔗</span> <a id="link2" href="https://the-one-barber-demo.vercel.app/reception" target="_blank">https://the-one-barber-demo.vercel.app/reception</a></div>
+        <div class="qr">
+          <img id="qr2" alt="QR reception" src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https://the-one-barber-demo.vercel.app/reception" />
+          <ul>
+            <li><b>PIN: 4477</b></li>
+            <li>→ Walk-in → assign barber + slot</li>
+            <li>→ Tip chips <b>+ card/cash at chair</b></li>
+            <li>→ Today's board is live — single engine</li>
+          </ul>
+        </div>
+      </div>
+      <div class="meta">
+        <span class="chip gold">PIN 4477</span><span class="chip">Tap to scan</span>
+        <a id="btn2" class="btn ghost" target="_blank" href="https://the-one-barber-demo.vercel.app/reception">Open Reception →</a>
+      </div>
+    </div>
+
+    <!-- 3 BARBER -->
+    <div class="card">
+      <div class="card head">
+        <div class="num n3">3</div>
+        <div>
+          <h2>Barber</h2>
+          <div class="sub">Each barber — own chair, own PIN, own payout</div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="url"><span>🔗</span> <a id="link3" href="https://the-one-barber-demo.vercel.app/barber" target="_blank">https://the-one-barber-demo.vercel.app/barber</a></div>
+        <div class="qr">
+          <img id="qr3" alt="QR barber" src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https://the-one-barber-demo.vercel.app/barber" />
+          <ul>
+            <li><b>1111</b> Thabo · <b>2222</b> Sbu · <b>3333</b> Kagiso · <b>4444</b> Thando</li>
+            <li>→ My line, my tips + commission</li>
+            <li>→ PIN is issued in <b>Admin → Barbers</b></li>
+          </ul>
+        </div>
+      </div>
+      <div class="meta">
+        <span class="chip gold">Per-barber PIN</span><span class="chip">Try 1111 / 2222</span>
+        <a id="btn3" class="btn ghost" target="_blank" href="https://the-one-barber-demo.vercel.app/barber">Open Barber →</a>
+      </div>
+    </div>
+
+    <!-- 4 ADMIN -->
+    <div class="card">
+      <div class="card head">
+        <div class="num n4">4</div>
+        <div>
+          <h2>Admin — Money Room</h2>
+          <div class="sub">You — prices, payouts, CRM export, loyalty, kill-switch</div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="url"><span>🔗</span> <a id="link4" href="https://the-one-barber-demo.vercel.app/admin" target="_blank">https://the-one-barber-demo.vercel.app/admin</a></div>
+        <div class="qr">
+          <img id="qr4" alt="QR admin" src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https://the-one-barber-demo.vercel.app/admin" />
+          <ul>
+            <li><b>PIN: 9201</b> · <b>⎋ Sign out</b> top-right (rose) + sidebar</li>
+            <li>→ Issue prices → live on site instantly</li>
+            <li>→ Money → commission + tips → <b>Export CSV</b></li>
+            <li>→ Customers → <b>Download for CRM</b> · Elite Way R500 add-on</li>
+          </ul>
+        </div>
+      </div>
+      <div class="meta">
+        <span class="chip gold">PIN 9201</span><span class="chip">Money Room</span>
+        <a id="btn4" class="btn gold" target="_blank" href="https://the-one-barber-demo.vercel.app/admin">Open Admin →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div>
+      <h3>How to run the 90-second demo</h3>
+      <ol class="steps">
+        <li><b>Open 4 tabs</b> before you share screen — have them ready.</li>
+        <li><b>Admin</b> (9201): issue a price <span style="color:var(--gold)">Classic Cut R150 → R160 → Publish</span> — "no deploy".</li>
+        <li><b>Website</b> (refresh): price is already live.</li>
+        <li><b>Reception</b> (4477): walk-in → assign + <b>R20 tip</b> → cash at chair.</li>
+        <li><b>Barber</b> (2222): payout now shows <b>commission + tip</b>.</li>
+        <li><b>Admin → Money / Customers</b>: export payouts & CRM CSV.</li>
+      </ol>
+      <div class="warn"><b>Vercel Hobby note:</b> data is <b>ephemeral</b> (in <code>/tmp</code>) — resets on cold starts. For the pitch that's perfect: tap <b>Admin → Settings → Reset demo data</b> anytime to re-seed. For production, add Vercel Postgres/Neon later — no dashboard rewrites needed.</div>
+      <div class="kpi">
+        <div><b>9 → 10</b><span>loyalty · 10th cut free</span></div>
+        <div><b>4</b><span>dashboards · 1 engine</span></div>
+        <div><b>Pretoria</b><span>Shop 22, Arcadia</span></div>
+      </div>
+      <p style="margin-top:10px;font-size:11px;color:rgba(255,255,255,.4)">Product of <a href="https://www.eliteway.co.za" target="_blank" style="color:var(--gold)">Elite Way Holdings</a> · Facebook: <a href="https://www.facebook.com/profile.php?id=100089811536139" target="_blank" style="color:var(--gold2)">The One Barber Studio</a> · Super-admin (hidden): <a id="linkSA" href="https://the-one-barber-demo.vercel.app/superadmin" target="_blank" style="color:rgba(255,255,255,.7)">/superadmin</a> PW: <b>Eliteflow26</b></p>
+    </div>
+    <div>
+      <h3>Present with 4 links — no install</h3>
+      <p>Send the client these 4 URLs (or share this sheet as PDF):</p>
+      <div style="margin-top:8px;background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:10px 12px;font-size:12px;font-family:ui-monospace,monospace;line-height:1.7">
+        <div id="mono1">https://the-one-barber-demo.vercel.app/</div>
+        <div id="mono2">https://the-one-barber-demo.vercel.app/reception</div>
+        <div id="mono3">https://the-one-barber-demo.vercel.app/barber</div>
+        <div id="mono4">https://the-one-barber-demo.vercel.app/admin</div>
+      </div>
+      <p style="margin-top:10px">Client scans each QR on their phone while you drive desktop — feels like 4 separate apps, but it's <b>one deployment</b> on the free plan.</p>
+      <a href="DEPLOY_VERCEL_4_LINKS.md" target="_blank" style="display:inline-block;margin-top:10px;font-size:12px;color:var(--gold)">→ Deploy guide (30s): DEPLOY_VERCEL_4_LINKS.md</a>
+      <div class="warn" style="margin-top:14px"><b>Tip during call:</b> keep this sheet in a <b>second tab</b>. When the client asks "can I try?" — say "scan the QR for Reception (4477) — create a walk-in, I'll watch my barber screen update."</div>
+    </div>
+  </div>
+</div>
+<script>
+function norm(v){
+  let s = (v||'').trim();
+  if(!s) return 'https://the-one-barber-demo.vercel.app';
+  if(!/^https?:\/\//i.test(s)) s = 'https://'+s;
+  return s.replace(/\/+$/,'');
+}
+function applyDomain(){
+  const base = norm(document.getElementById('domain').value);
+  const urls = [base+'/', base+'/reception', base+'/barber', base+'/admin'];
+  const ids = ['link1','link2','link3','link4'];
+  const btns = ['btn1','btn2','btn3','btn4'];
+  const monos = ['mono1','mono2','mono3','mono4'];
+  const qrs = ['qr1','qr2','qr3','qr4'];
+  urls.forEach((u,i)=>{
+    document.getElementById(ids[i]).textContent = u;
+    document.getElementById(ids[i]).href = u;
+    document.getElementById(btns[i]).href = u;
+    document.getElementById(monos[i]).textContent = u;
+    document.getElementById(qrs[i]).src = 'https://api.qrserver.com/v1/create-qr-code/?size=240x240&data='+encodeURIComponent(u);
+  });
+  const sa = base+'/superadmin';
+  document.getElementById('linkSA').textContent = sa.replace(/^https?:\/\//,'');
+  document.getElementById('linkSA').href = sa;
+  try{ localStorage.setItem('obb_pitch_domain', base); }catch{}
+}
+(function(){
+  try{
+    const saved = localStorage.getItem('obb_pitch_domain');
+    if(saved){ document.getElementById('domain').value = saved; applyDomain(); }
+  }catch{}
+  document.getElementById('domain').addEventListener('keydown', e=>{ if(e.key==='Enter') applyDomain(); });
+})();
+</script>
+</body>
+</html>
