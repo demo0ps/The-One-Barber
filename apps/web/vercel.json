@@ -1,0 +1,7 @@
+{
+  "buildCommand": "cd ../.. && npm run build --workspace @the-one-barber/web",
+  "outputDirectory": ".next",
+  "installCommand": "cd ../.. && npm install",
+  "framework": "nextjs",
+  "regions": ["fra1"]
+}
